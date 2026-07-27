@@ -51,6 +51,8 @@ The first public demonstrations should make the current ZeroModel research seque
 5. **Evidence Contract Compiler** — a bounded compiler selects an evidence-preserving representation.
 6. **Observability boundary** — the system distinguishes a poor representation from an observation that never contained the required evidence.
 
+The expanded [current test-case demo inventory](docs/current-test-case-demo-inventory.md) maps the present ZeroModel benchmark and P18 test surface into launch demos, technical demos, labs, showcases, and bounded experiments. The machine-readable candidates are listed in [`catalog.yaml`](catalog.yaml).
+
 ## Principles
 
 Every published item should be:
@@ -67,11 +69,11 @@ Every published item should be:
 Each item must include:
 
 ```text
-README.md          explanation, setup, expected result, limitations
+README.md           explanation, setup, expected result, limitations
 zeromodel-demo.yaml machine-readable metadata
-src/ or app/       implementation
-assets/            screenshots, VPMs, diagrams, or fixtures
- tests/             focused deterministic checks where applicable
+src/ or app/        implementation
+assets/             screenshots, VPMs, diagrams, or fixtures
+tests/              focused deterministic checks where applicable
 ```
 
 See [`templates/demo/`](templates/demo/) for the starter contract.
