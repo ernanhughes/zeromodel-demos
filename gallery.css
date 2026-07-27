@@ -1,0 +1,29 @@
+:root { color-scheme: dark; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #07111f; color: #eef4ff; }
+* { box-sizing: border-box; }
+body { margin: 0; background: radial-gradient(circle at top, #142a48 0, #07111f 42rem); }
+a { color: inherit; }
+.shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 72px 0 48px; }
+.hero { max-width: 850px; margin-bottom: 72px; }
+.eyebrow, .step-label, .card-kicker { margin: 0 0 10px; color: #79d9ff; font-weight: 800; text-transform: uppercase; letter-spacing: .13em; font-size: .76rem; }
+h1 { margin: 0; font-size: clamp(3rem, 8vw, 6.5rem); line-height: .92; letter-spacing: -.065em; }
+.lede { max-width: 760px; margin: 28px 0; font-size: clamp(1.05rem, 2vw, 1.35rem); line-height: 1.65; color: #bfd0e7; }
+.runtime-boundary { display: flex; flex-wrap: wrap; gap: 10px; }
+.runtime-boundary span { padding: 9px 13px; border: 1px solid #315273; border-radius: 999px; background: #0a1a2b; color: #d7e8fa; font-size: .88rem; }
+.section-heading { margin-bottom: 22px; }
+h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.25rem); letter-spacing: -.04em; }
+.demo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.demo-card { position: relative; min-height: 390px; padding: 30px; border: 1px solid #2b4b6a; border-radius: 24px; background: linear-gradient(145deg, rgba(17,42,67,.96), rgba(8,22,38,.98)); box-shadow: 0 24px 70px rgba(0,0,0,.25); display: flex; flex-direction: column; }
+.card-number { position: absolute; top: 24px; right: 26px; color: #55738f; font-size: 2.5rem; font-weight: 900; }
+.demo-card h3 { max-width: 75%; margin: 5px 0 14px; font-size: clamp(1.8rem, 3vw, 2.7rem); line-height: 1.05; letter-spacing: -.04em; }
+.demo-card > p:not(.card-kicker) { color: #bdd0e6; line-height: 1.65; }
+.flow { margin: auto 0 20px; padding: 13px 15px; border-left: 3px solid #54d4ff; background: #071522; color: #dff6ff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92rem; }
+.card-link { display: inline-flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 12px; background: #dff7ff; color: #07111f; text-decoration: none; font-weight: 850; }
+.card-link:hover, .card-link:focus-visible { background: #79d9ff; }
+.roadmap { margin-top: 76px; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.roadmap-card { padding: 22px; border: 1px solid #243d57; border-radius: 18px; background: rgba(8,23,39,.75); }
+.roadmap-card span { color: #79d9ff; font-weight: 900; }
+.roadmap-card h3 { margin: 14px 0 8px; font-size: 1.25rem; }
+.roadmap-card p { margin: 0; color: #9fb4ca; line-height: 1.5; }
+footer { margin-top: 55px; padding-top: 24px; border-top: 1px solid #223c57; color: #91a9c1; }
+@media (max-width: 820px) { .demo-grid, .roadmap-grid { grid-template-columns: 1fr; } .demo-card { min-height: 340px; } .shell { padding-top: 42px; } }
