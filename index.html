@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ZeroModel Web Demos</title>
+  <meta name="description" content="A growing staircase of browser-native ZeroModel demonstrations.">
+  <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">ZeroModel Web</p>
+      <h1>The intelligence is the image.</h1>
+      <p class="lede">A growing sequence of static browser demonstrations showing how state addresses a visual policy, how that policy can be inspected and changed, and how an image can eventually control autonomous behaviour.</p>
+      <div class="runtime-boundary" aria-label="Runtime boundary">
+        <span>No model</span><span>No API</span><span>No Python runtime</span><span>Just image + reader</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="available-title">
+      <div class="section-heading">
+        <p class="step-label">Available now</p>
+        <h2 id="available-title">Start at the beginning</h2>
+      </div>
+      <div class="demo-grid">
+        <article class="demo-card">
+          <div class="card-number">01</div>
+          <p class="card-kicker">Address the intelligence</p>
+          <h3>State Chooses the Pixel</h3>
+          <p>Choose a state, watch it resolve to an image cell, read the encoded action, and inspect which states map back to that address.</p>
+          <div class="flow">state → address → image → action</div>
+          <a class="card-link" href="demos/state-chooses-the-pixel/">Open Demo 01 <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="demo-card">
+          <div class="card-number">02</div>
+          <p class="card-kicker">Change the intelligence</p>
+          <h3>Edit the Intelligence</h3>
+          <p>Hold the state and JavaScript reader constant, repaint the selected policy cell, and replay the decision to compare before and after.</p>
+          <div class="flow">same state + new pixel → new action</div>
+          <a class="card-link" href="demos/edit-the-intelligence/">Open Demo 02 <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="roadmap" aria-labelledby="roadmap-title">
+      <div class="section-heading">
+        <p class="step-label">Coming next</p>
+        <h2 id="roadmap-title">The demo staircase</h2>
+      </div>
+      <div class="roadmap-grid">
+        <article class="roadmap-card"><span>03</span><h3>Transition Evidence</h3><p>Did the visible result follow the declared policy?</p></article>
+        <article class="roadmap-card"><span>04</span><h3>Representation Matters</h3><p>See how compression can preserve or erase evidence.</p></article>
+        <article class="roadmap-card"><span>05</span><h3>Compile the Representation</h3><p>Generate an evidence-preserving visual policy artifact.</p></article>
+        <article class="roadmap-card"><span>06</span><h3>Fight the Image</h3><p>Play against an enemy whose decision policy is literally an image.</p></article>
+      </div>
+    </section>
+
+    <footer><p>Each rung introduces one new capability while keeping the runtime static, inspectable, and browser-native.</p></footer>
+  </main>
+</body>
+</html>
