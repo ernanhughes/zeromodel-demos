@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>State Chooses the Pixel — ZeroModel</title>
   <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="../../application-context.css">
 </head>
 <body>
   <main class="demo-shell">
@@ -15,92 +16,22 @@
     </header>
 
     <section class="controls" aria-labelledby="state-heading">
-      <div>
-        <p class="step">1 · Choose the state</p>
-        <h2 id="state-heading">State</h2>
-      </div>
-      <label>Threat
-        <select id="threat">
-          <option value="0">None</option>
-          <option value="1">Distant</option>
-          <option value="2" selected>Near</option>
-          <option value="3">Critical</option>
-        </select>
-      </label>
-      <label>Energy
-        <select id="energy">
-          <option value="0">Empty</option>
-          <option value="1">Low</option>
-          <option value="2" selected>Ready</option>
-          <option value="3">Full</option>
-        </select>
-      </label>
+      <div><p class="step">1 · Choose the state</p><h2 id="state-heading">State</h2></div>
+      <label>Threat<select id="threat"><option value="0">None</option><option value="1">Distant</option><option value="2" selected>Near</option><option value="3">Critical</option></select></label>
+      <label>Energy<select id="energy"><option value="0">Empty</option><option value="1">Low</option><option value="2" selected>Ready</option><option value="3">Full</option></select></label>
     </section>
 
     <section class="demo-grid">
-      <article class="panel policy-panel">
-        <p class="step">2 · State becomes an address</p>
-        <h2>The policy image</h2>
-        <div class="policy-stage">
-          <canvas id="policy-canvas" width="512" height="512" aria-label="Executable visual policy"></canvas>
-          <div id="highlight" aria-hidden="true"></div>
-        </div>
-        <div class="axis-label axis-x">Energy →</div>
-        <div class="axis-label axis-y">Threat →</div>
-      </article>
-
-      <article class="panel trace-panel">
-        <p class="step">3 · Read the selected pixel</p>
-        <h2>Execution trace</h2>
-        <dl>
-          <div><dt>State</dt><dd id="state-value"></dd></div>
-        <div><dt>Compiled address</dt><dd id="grid-address"></dd></div>
-          <div><dt>Image coordinate</dt><dd id="pixel-address"></dd></div>
-          <div><dt>Pixel colour</dt><dd><span id="colour-chip"></span><code id="pixel-colour"></code></dd></div>
-          <div class="result"><dt>Decoded action</dt><dd id="action"></dd></div>
-        </dl>
-        <p class="runtime-note">Runtime: one image, one manifest, and ordinary browser JavaScript. No Python, model, prompt, API, or inference server.</p>
-      </article>
+      <article class="panel policy-panel"><p class="step">2 · State becomes an address</p><h2>The policy image</h2><div class="policy-stage"><canvas id="policy-canvas" width="512" height="512" aria-label="Executable visual policy"></canvas><div id="highlight" aria-hidden="true"></div></div><div class="axis-label axis-x">Energy →</div><div class="axis-label axis-y">Threat →</div></article>
+      <article class="panel trace-panel"><p class="step">3 · Read the selected pixel</p><h2>Execution trace</h2><dl><div><dt>State</dt><dd id="state-value"></dd></div><div><dt>Compiled address</dt><dd id="grid-address"></dd></div><div><dt>Image coordinate</dt><dd id="pixel-address"></dd></div><div><dt>Pixel colour</dt><dd><span id="colour-chip"></span><code id="pixel-colour"></code></dd></div><div class="result"><dt>Decoded action</dt><dd id="action"></dd></div></dl><p class="runtime-note">Runtime: one image, one manifest, and ordinary browser JavaScript. No Python, model, prompt, API, or inference server.</p></article>
     </section>
 
-    <section class="panel reverse-panel" aria-labelledby="reverse-heading">
-      <div>
-        <p class="step">4 · Inspect the reverse direction</p>
-        <h2 id="reverse-heading">What maps here?</h2>
-      </div>
-      <div class="reverse-grid">
-        <dl>
-          <div><dt>Selected cell</dt><dd id="reverse-cell"></dd></div>
-          <div><dt>Encoded colour</dt><dd><span id="reverse-colour-chip"></span><code id="reverse-colour"></code></dd></div>
-          <div><dt>Decoded action</dt><dd id="reverse-action"></dd></div>
-          <div><dt>Reverse mapping</dt><dd id="reverse-classification"></dd></div>
-          <div><dt>Compatible states</dt><dd id="reverse-count"></dd></div>
-        </dl>
-        <div>
-          <ul id="compatible-states" class="compatible-states"></ul>
-          <p id="equivalence-note" class="equivalence-note"></p>
-        </div>
-      </div>
-      <p class="runtime-note">Forward execution chooses an action from a state. Reverse inspection shows every state compatible with the selected policy cell.</p>
-    </section>
+    <section class="panel reverse-panel" aria-labelledby="reverse-heading"><div><p class="step">4 · Inspect the reverse direction</p><h2 id="reverse-heading">What maps here?</h2></div><div class="reverse-grid"><dl><div><dt>Selected cell</dt><dd id="reverse-cell"></dd></div><div><dt>Encoded colour</dt><dd><span id="reverse-colour-chip"></span><code id="reverse-colour"></code></dd></div><div><dt>Decoded action</dt><dd id="reverse-action"></dd></div><div><dt>Reverse mapping</dt><dd id="reverse-classification"></dd></div><div><dt>Compatible states</dt><dd id="reverse-count"></dd></div></dl><div><ul id="compatible-states" class="compatible-states"></ul><p id="equivalence-note" class="equivalence-note"></p></div></div><p class="runtime-note">Forward execution chooses an action from a state. Reverse inspection shows every state compatible with the selected policy cell.</p></section>
 
-    <section class="explanation">
-      <article>
-        <p class="step">What it does</p>
-        <h2>The picture is the policy</h2>
-        <p>The JavaScript contains the address and colour-decoding rules, but not the decision table. Replace the policy image and the same reader produces different behaviour.</p>
-      </article>
-      <article>
-        <p class="step">How to extend it</p>
-        <h2>Add dimensions, actions, or a generated policy</h2>
-        <p>The next demos will replace this explanatory 4×4 policy with larger ZeroModel-generated artifacts, editable policies, transition evidence, and eventually an image-controlled shooter enemy.</p>
-      </article>
-    </section>
-
-    <footer>
-      <p id="limitation"></p>
-    </footer>
+    <section class="explanation"><article><p class="step">What it does</p><h2>The picture is the policy</h2><p>The JavaScript contains the address and colour-decoding rules, but not the decision table. Replace the policy image and the same reader produces different behaviour.</p></article><article><p class="step">How to extend it</p><h2>Add dimensions, actions, or a generated policy</h2><p>The next demos replace this explanatory 4×4 policy with editable policies, transition evidence, and compiled representations.</p></article></section>
+    <footer><p id="limitation"></p></footer>
   </main>
   <script src="demo.js" defer></script>
+  <script src="../../application-context.js" defer></script>
 </body>
 </html>
