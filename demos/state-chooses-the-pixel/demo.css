@@ -21,6 +21,7 @@ select { width: 100%; border: 1px solid #3b4b69; border-radius: 10px; background
 .panel { padding: 24px; }
 .policy-stage { position: relative; width: min(100%, 560px); aspect-ratio: 1; margin: 0 auto; }
 canvas { display: block; width: 100%; height: 100%; border-radius: 12px; image-rendering: pixelated; }
+canvas { cursor: crosshair; }
 #highlight { position: absolute; pointer-events: none; border: 5px solid #fff; box-shadow: 0 0 0 3px #05070c, 0 0 32px rgba(255,255,255,.8); transition: inset .18s ease, left .18s ease, top .18s ease; }
 .axis-label { color: #91a0b8; font-size: .8rem; font-weight: 700; }
 .axis-x { text-align: center; margin-top: 10px; }
@@ -32,12 +33,18 @@ dd { margin: 0; font-weight: 750; }
 #colour-chip { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border-radius: 4px; vertical-align: -2px; border: 1px solid rgba(255,255,255,.4); }
 .result dd { color: #fff; font-size: 1.55rem; }
 .runtime-note { margin-top: 24px; padding: 18px; border-radius: 12px; background: #0a1222; color: #b9c5d8; line-height: 1.55; }
+.reverse-panel { margin-top: 22px; }
+.reverse-grid { display: grid; grid-template-columns: minmax(320px, .82fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+#reverse-colour-chip { display: inline-block; width: 16px; height: 16px; margin-right: 8px; border-radius: 4px; vertical-align: -2px; border: 1px solid rgba(255,255,255,.4); }
+.compatible-states { margin: 0; padding: 18px 18px 18px 38px; border: 1px solid #26334d; border-radius: 12px; background: #0a1222; color: #d9e3f0; line-height: 1.8; }
+.compatible-states:empty { display: none; }
+.equivalence-note { margin: 14px 0 0; color: #b9c5d8; line-height: 1.55; }
 .explanation { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
 .explanation article { padding: 24px; }
 .explanation p:not(.step), footer { color: #b9c5d8; line-height: 1.65; }
 footer { margin-top: 24px; padding: 0 6px; font-size: .92rem; }
 
 @media (max-width: 780px) {
-  .controls, .demo-grid, .explanation { grid-template-columns: 1fr; }
+  .controls, .demo-grid, .reverse-grid, .explanation { grid-template-columns: 1fr; }
   dl div { grid-template-columns: 1fr; gap: 5px; }
 }

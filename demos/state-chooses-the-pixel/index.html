@@ -11,7 +11,7 @@
     <header class="hero">
       <p class="eyebrow">ZeroModel Web · Demo 01</p>
       <h1>State Chooses the Pixel</h1>
-      <p class="lede">There is no model running here. Browser state selects one coordinate in a policy image. The colour at that coordinate returns the action.</p>
+      <p class="lede">There is no model running here. Browser state compiles to one coordinate in a policy image. The colour at that coordinate returns the action.</p>
     </header>
 
     <section class="controls" aria-labelledby="state-heading">
@@ -54,13 +54,34 @@
         <h2>Execution trace</h2>
         <dl>
           <div><dt>State</dt><dd id="state-value"></dd></div>
-          <div><dt>Grid address</dt><dd id="grid-address"></dd></div>
+        <div><dt>Compiled address</dt><dd id="grid-address"></dd></div>
           <div><dt>Image coordinate</dt><dd id="pixel-address"></dd></div>
           <div><dt>Pixel colour</dt><dd><span id="colour-chip"></span><code id="pixel-colour"></code></dd></div>
           <div class="result"><dt>Decoded action</dt><dd id="action"></dd></div>
         </dl>
         <p class="runtime-note">Runtime: one image, one manifest, and ordinary browser JavaScript. No Python, model, prompt, API, or inference server.</p>
       </article>
+    </section>
+
+    <section class="panel reverse-panel" aria-labelledby="reverse-heading">
+      <div>
+        <p class="step">4 · Inspect the reverse direction</p>
+        <h2 id="reverse-heading">What maps here?</h2>
+      </div>
+      <div class="reverse-grid">
+        <dl>
+          <div><dt>Selected cell</dt><dd id="reverse-cell"></dd></div>
+          <div><dt>Encoded colour</dt><dd><span id="reverse-colour-chip"></span><code id="reverse-colour"></code></dd></div>
+          <div><dt>Decoded action</dt><dd id="reverse-action"></dd></div>
+          <div><dt>Reverse mapping</dt><dd id="reverse-classification"></dd></div>
+          <div><dt>Compatible states</dt><dd id="reverse-count"></dd></div>
+        </dl>
+        <div>
+          <ul id="compatible-states" class="compatible-states"></ul>
+          <p id="equivalence-note" class="equivalence-note"></p>
+        </div>
+      </div>
+      <p class="runtime-note">Forward execution chooses an action from a state. Reverse inspection shows every state compatible with the selected policy cell.</p>
     </section>
 
     <section class="explanation">

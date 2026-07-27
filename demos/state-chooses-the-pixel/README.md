@@ -2,13 +2,13 @@
 
 The introductory ZeroModel Web demonstration.
 
-A browser state selects one cell in a lossless policy image. The colour sampled from that image decodes to an action. The runtime contains no Python, model, prompt, API call, or inference server.
+A browser state compiles to one cell in a lossless policy image. The colour sampled from that image decodes to an action. The same page also lets you click a policy cell and inspect every valid state compatible with that cell. The runtime contains no Python, model, prompt, API call, or inference server.
 
 ## Demonstration staircase
 
 This is step one of the public ZeroModel Web sequence:
 
-1. **State Chooses the Pixel** — state addresses an image and reads an action.
+1. **State Chooses the Pixel** — state compiles to an image address, reads an action, and inspects compatible states in reverse.
 2. **Edit the Intelligence** — change the image and change behaviour.
 3. **Transition Evidence** — inspect before/after state and declared contracts.
 4. **Representation Matters** — show how a poor representation erases evidence.
@@ -24,7 +24,7 @@ Within this bounded 4×4 policy:
 ```text
 threat + energy
     ↓
-grid address
+compiled address
     ↓
 image coordinate
     ↓
@@ -34,6 +34,33 @@ decoded action
 ```
 
 The JavaScript is the reader and actuator. `policy.svg` contains the decision table.
+
+The page also demonstrates the reverse direction:
+
+```text
+selected policy cell
+    ↓
+decoded action
+    ↓
+compatible states
+```
+
+The reverse index is generated in JavaScript by enumerating the bounded state space and applying the same address-compilation logic used for forward execution. This shows that a visual policy cell can correspond to one state, multiple compatible states, or no reachable state.
+
+Most states map one-to-one to cells. One deliberate compression makes the reverse ambiguity visible:
+
+```text
+threat = critical, energy = low
+threat = critical, energy = ready
+    ↓
+row 3, column 0
+    ↓
+retreat
+```
+
+Because both raw states compile to the same decision-relevant state, `row 3, column 2` is left unreachable. Clicking cells in the image therefore demonstrates unique states, an equivalence class, and unused policy space.
+
+The remaining critical state, `threat = critical, energy = empty`, is compiled to `row 3, column 1` so the shared retreat cell demonstrates exactly the intended two-state equivalence class.
 
 ## Run locally
 
@@ -77,7 +104,7 @@ An iframe is the safest first integration because the demo remains independently
 
 - `policy.svg` — lossless executable visual policy.
 - `policy.json` — dimensions, geometry, colour decoder, and bounded claim.
-- `demo.js` — generic browser reader for this manifest shape.
+- `demo.js` — generic browser reader for this manifest shape, including derived reverse inspection.
 - `index.html` and `demo.css` — static presentation.
 
 ## Extension exercise
