@@ -1,0 +1,45 @@
+{
+  "id": "edit-the-intelligence",
+  "title": "Edit the Intelligence",
+  "image": "policy.svg",
+  "grid": {
+    "rows": 4,
+    "columns": 4,
+    "cell_width": 80,
+    "cell_height": 80
+  },
+  "dimensions": [
+    {
+      "name": "threat",
+      "values": ["none", "visible", "high", "critical"]
+    },
+    {
+      "name": "energy",
+      "values": ["empty", "low", "ready", "full"]
+    }
+  ],
+  "actions": [
+    {"id": "idle", "colour": "#202b38"},
+    {"id": "advance", "colour": "#26a269"},
+    {"id": "fire", "colour": "#e01b24"},
+    {"id": "retreat", "colour": "#f5c211"},
+    {"id": "dodge", "colour": "#1c71d8"},
+    {"id": "guard", "colour": "#9141ac"}
+  ],
+  "decoder": {
+    "#202b38": "idle",
+    "#26a269": "advance",
+    "#e01b24": "fire",
+    "#f5c211": "retreat",
+    "#1c71d8": "dodge",
+    "#9141ac": "guard"
+  },
+  "default_state": {
+    "threat": 2,
+    "energy": 2
+  },
+  "claims": {
+    "demonstrates": "Changing the visual policy cell changes the decoded decision while state and reader remain fixed.",
+    "limitations": "The explanatory policy is hand-authored and edits remain only in the browser session."
+  }
+}

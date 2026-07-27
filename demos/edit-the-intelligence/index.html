@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edit the Intelligence — ZeroModel Web</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">ZeroModel Web · Demo 2</p>
+      <h1>Edit the Intelligence</h1>
+      <p class="lede">Hold the state and JavaScript reader constant. Repaint one policy cell and the decision changes immediately.</p>
+    </header>
+
+    <section class="card controls" aria-labelledby="state-heading">
+      <div>
+        <p class="step">1 · Choose a test state</p>
+        <h2 id="state-heading">State selects the cell</h2>
+      </div>
+      <label>Threat
+        <select id="threat"></select>
+      </label>
+      <label>Energy
+        <select id="energy"></select>
+      </label>
+      <button id="replay" type="button">Replay decision</button>
+    </section>
+
+    <section class="workspace">
+      <article class="card policy-card">
+        <p class="step">2 · Inspect the policy</p>
+        <h2>The image is the policy</h2>
+        <div class="canvas-wrap">
+          <canvas id="policy-canvas" width="320" height="320" aria-label="Editable visual policy map"></canvas>
+          <div id="highlight" aria-hidden="true"></div>
+        </div>
+        <p class="hint">Click any cell to inspect it. The selected state still determines which cell is executed.</p>
+      </article>
+
+      <article class="card palette-card">
+        <p class="step">3 · Change one encoded action</p>
+        <h2>Paint the selected cell</h2>
+        <div id="palette" class="palette" role="group" aria-label="Policy action palette"></div>
+        <button id="apply" type="button" class="primary">Apply to selected state cell</button>
+        <button id="reset" type="button" class="secondary">Reset original image</button>
+      </article>
+    </section>
+
+    <section class="comparison">
+      <article class="card result-card">
+        <p class="step">Before</p>
+        <h2>Original decision</h2>
+        <dl>
+          <div><dt>State</dt><dd id="before-state">—</dd></div>
+          <div><dt>Cell</dt><dd id="before-cell">—</dd></div>
+          <div><dt>Colour</dt><dd><span id="before-chip" class="chip"></span><span id="before-colour">—</span></dd></div>
+          <div><dt>Action</dt><dd id="before-action" class="action">—</dd></div>
+        </dl>
+      </article>
+
+      <article class="card result-card changed">
+        <p class="step">After</p>
+        <h2>Current decision</h2>
+        <dl>
+          <div><dt>State</dt><dd id="after-state">—</dd></div>
+          <div><dt>Cell</dt><dd id="after-cell">—</dd></div>
+          <div><dt>Colour</dt><dd><span id="after-chip" class="chip"></span><span id="after-colour">—</span></dd></div>
+          <div><dt>Action</dt><dd id="after-action" class="action">—</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="card explanation">
+      <p class="step">What changed?</p>
+      <h2>The reader did not change. The state did not change. The image changed.</h2>
+      <p id="change-summary">Choose an action and apply it to the selected state cell.</p>
+      <pre><code>same state + same reader + different pixel = different decision</code></pre>
+      <p class="boundary">This demo edits a browser copy of the policy image. It does not retrain a model, call an API, or persist changes to the server.</p>
+    </section>
+  </main>
+  <script src="demo.js" defer></script>
+</body>
+</html>
