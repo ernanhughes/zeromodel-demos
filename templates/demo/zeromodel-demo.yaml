@@ -1,0 +1,47 @@
+schema_version: zeromodel-demo/v1
+id: replace-with-kebab-case-id
+title: Replace with title
+class: demo
+status: planned
+summary: One sentence explaining the item.
+
+zeromodel:
+  repository: https://github.com/ernanhughes/zeromodel
+  version: null
+  commit: null
+  packages: []
+
+runtime:
+  language: python
+  version: ">=3.11"
+  entrypoint: null
+  network_required: false
+  external_services: []
+
+presentation:
+  website_visible: false
+  featured: false
+  route: null
+  thumbnail: null
+  screenshots: []
+
+claims:
+  supported: []
+  limitations: []
+  claims_to_avoid: []
+
+provenance:
+  claims_audit: null
+  frozen_results: []
+  research_documents: []
+
+validation:
+  install_command: null
+  run_command: null
+  test_command: null
+  expected_artifacts: []
+
+promotion:
+  source_item: null
+  target_class: null
+  review_notes: null
