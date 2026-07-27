@@ -1,0 +1,38 @@
+{
+  "schema_version": "zeromodel-web-policy/v1",
+  "id": "intro-threat-energy-policy",
+  "title": "State Chooses the Pixel",
+  "image": "policy.svg",
+  "width": 512,
+  "height": 512,
+  "grid": {
+    "columns": 4,
+    "rows": 4,
+    "cell_width": 128,
+    "cell_height": 128
+  },
+  "dimensions": [
+    {
+      "name": "energy",
+      "axis": "x",
+      "values": ["empty", "low", "ready", "full"]
+    },
+    {
+      "name": "threat",
+      "axis": "y",
+      "values": ["none", "distant", "near", "critical"]
+    }
+  ],
+  "decoder": {
+    "#6b7280": "idle",
+    "#22c55e": "advance",
+    "#3b82f6": "observe",
+    "#ef4444": "fire",
+    "#eab308": "retreat",
+    "#a855f7": "evade"
+  },
+  "claims": {
+    "supported": "For this bounded deterministic policy, browser state selects an image coordinate and the sampled colour decodes to an action.",
+    "limitations": "This introductory policy is hand-authored for explanation. It does not establish learning, open-world perception, or general intelligence."
+  }
+}
