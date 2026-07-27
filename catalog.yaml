@@ -3,6 +3,7 @@ repository: ernanhughes/zeromodel-demos
 product: ZeroModel
 source_repository: https://github.com/ernanhughes/zeromodel
 website: https://zeromodel.org
+inventory_document: docs/current-test-case-demo-inventory.md
 
 classes:
   - demo
@@ -17,26 +18,165 @@ statuses:
   - published
   - archived
 
+priorities:
+  - launch
+  - technical
+
 items: []
 
 planned_items:
   - id: visual-policy-lookup
     class: demo
+    priority: launch
     title: Visual Policy Map Lookup
     summary: Turn structured state into an addressable visual policy artifact and retrieve a deterministic result.
-  - id: transition-evidence
+
+  - id: pixel-difference-vs-transition-evidence
     class: demo
-    title: Transition Evidence
-    summary: Compare visible state before and after an action using declared component contracts.
+    priority: launch
+    title: Pixel Difference vs Transition Evidence
+    summary: Compare raw changed pixels with declared component evidence and transition conformance.
+
+  - id: visible-component-change-attribution
+    class: demo
+    priority: launch
+    title: Visible Component Change Attribution
+    summary: Attribute visible frame changes to declared arcade and warehouse components.
+
+  - id: stable-component-violation
+    class: demo
+    priority: launch
+    title: Stable Component Violation
+    summary: Detect an unexpected change in a component declared stable for an action.
+
+  - id: required-change-missing
+    class: demo
+    priority: launch
+    title: Required Change Missing
+    summary: Detect a component that was required to change but remained visually unchanged.
+
+  - id: wrong-direction-contract
+    class: demo
+    priority: launch
+    title: Correct Component, Wrong Direction
+    summary: Show why changed-component attribution cannot determine whether movement had the correct direction.
+
+  - id: wrong-magnitude-contract
+    class: demo
+    priority: launch
+    title: Correct Direction, Wrong Magnitude
+    summary: Detect movement in the expected direction but by an incorrect distance.
+
+  - id: numeric-state-contract
+    class: demo
+    priority: launch
+    title: Numeric State Contract
+    summary: Decode and validate bounded numeric visual state such as cooldown, battery, or door evidence.
+
+  - id: relation-contract
+    class: demo
+    priority: technical
+    title: Relation Contract
+    summary: Evaluate a transition relation requiring multiple decoded components.
+
+  - id: cross-domain-contract-replication
+    class: showcase
+    priority: launch
+    title: Cross-Domain Contract Replication
+    summary: Apply shared visual evidence and conformance machinery to independent arcade and warehouse domains.
+
   - id: representation-failure-explorer
     class: lab
+    priority: launch
     title: Representation Failure Explorer
-    summary: Inspect how geometry and aggregation choices preserve or erase evidence.
+    summary: Inspect coarse dilution, aggregation ties, and spatial information loss.
+
+  - id: manual-representation-repair
+    class: lab
+    priority: technical
+    title: Manual Representation Repair
+    summary: Reproduce the evidence-preserving manual representation changes discovered by the benchmark tests.
+
   - id: evidence-contract-compiler
     class: showcase
+    priority: launch
     title: Evidence Contract Compiler
-    summary: Show bounded automatic representation selection and comparison with manual baselines.
+    summary: Show bounded automatic representation selection and held-out evaluation.
+
+  - id: compiler-baseline-comparison
+    class: lab
+    priority: launch
+    title: Compiler vs Fixed, Pixel, and Manual Baselines
+    summary: Compare compiler-selected, fixed-coarse, always-pixel, and historical manual strategies.
+
+  - id: visible-identity-preservation
+    class: experiment
+    priority: technical
+    title: Visible Identity Preservation
+    summary: Show visible warehouse identity evidence that is lost by an inadequate representation.
+
   - id: observability-boundary
     class: showcase
+    priority: launch
     title: Observability Boundary
-    summary: Contrast recoverable visible identity with a property absent from the permitted observation.
+    summary: Contrast recoverable visible identity with target identity absent from the permitted observation.
+
+  - id: recurrent-transition-discovery
+    class: lab
+    priority: technical
+    title: Recurrent Transition Discovery
+    summary: Aggregate repeated unexplained transitions into a bounded field-level candidate hypothesis.
+
+  - id: held-out-candidate-validation
+    class: demo
+    priority: technical
+    title: Held-Out Candidate Validation
+    summary: Validate discovered transition candidates against a separately identified immutable cohort.
+
+  - id: governed-promotion-review
+    class: lab
+    priority: technical
+    title: Governed Promotion Review
+    summary: Inspect immutable proposals and explicit reviewer decisions without changing runtime behavior.
+
+  - id: reversible-materialization-plan
+    class: demo
+    priority: technical
+    title: Reversible Materialization Plan
+    summary: Materialize an approved proposal into staged forward and inverse operations bound to an exact baseline.
+
+  - id: atomic-activation
+    class: demo
+    priority: technical
+    title: Atomic Activation
+    summary: Compare successful exact-baseline activation with injected failure that leaves no partial mutation.
+
+  - id: stale-admission-rejection
+    class: experiment
+    priority: technical
+    title: Stale Admission Rejection
+    summary: Show compare-and-swap rejecting an admission after the active state has changed.
+
+  - id: durable-activation-restart
+    class: demo
+    priority: technical
+    title: Durable Activation Across Restart
+    summary: Persist active state, activation receipt, rollback plan, and operation order through a store restart.
+
+  - id: governed-exact-state-rollback
+    class: showcase
+    priority: technical
+    title: Governed Exact-State Rollback
+    summary: Execute the exact stored inverse plan atomically while preserving activation and rollback history.
+
+  - id: concurrent-idempotent-rollback
+    class: experiment
+    priority: technical
+    title: Concurrent Idempotent Rollback
+    summary: Submit the same rollback from two SQLite store instances and apply the inverse plan only once.
+
+  - id: persistence-corruption-detection
+    class: lab
+    priority: technical
+    title: Persistence Corruption Detection
+    summary: Inspect explicit rejection of malformed JSON, schema, operation order, admission, and lineage data.
