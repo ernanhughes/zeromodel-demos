@@ -1,0 +1,42 @@
+schema_version: zeromodel-demo-catalog/v1
+repository: ernanhughes/zeromodel-demos
+product: ZeroModel
+source_repository: https://github.com/ernanhughes/zeromodel
+website: https://zeromodel.org
+
+classes:
+  - demo
+  - showcase
+  - lab
+  - experiment
+
+statuses:
+  - planned
+  - prototype
+  - review
+  - published
+  - archived
+
+items: []
+
+planned_items:
+  - id: visual-policy-lookup
+    class: demo
+    title: Visual Policy Map Lookup
+    summary: Turn structured state into an addressable visual policy artifact and retrieve a deterministic result.
+  - id: transition-evidence
+    class: demo
+    title: Transition Evidence
+    summary: Compare visible state before and after an action using declared component contracts.
+  - id: representation-failure-explorer
+    class: lab
+    title: Representation Failure Explorer
+    summary: Inspect how geometry and aggregation choices preserve or erase evidence.
+  - id: evidence-contract-compiler
+    class: showcase
+    title: Evidence Contract Compiler
+    summary: Show bounded automatic representation selection and comparison with manual baselines.
+  - id: observability-boundary
+    class: showcase
+    title: Observability Boundary
+    summary: Contrast recoverable visible identity with a property absent from the permitted observation.
