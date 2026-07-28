@@ -1,0 +1,309 @@
+{
+  "id": "arcade-irrelevant-noise",
+  "domain": "arcade",
+  "scenario": "irrelevant-noise",
+  "title": "Irrelevant visual noise with valid transition",
+  "source_observation": {
+    "components": [
+      {
+        "id": "tank",
+        "label": "tank",
+        "kind": "actor",
+        "x": 4,
+        "y": 3,
+        "identity": "tank-1",
+        "direction": "right",
+        "cooldown": 0.2
+      },
+      {
+        "id": "alien-2",
+        "label": "alien-2",
+        "kind": "actor",
+        "x": 9,
+        "y": 3,
+        "identity": "alien-2",
+        "direction": "left",
+        "cooldown": 0
+      },
+      {
+        "id": "wall",
+        "label": "wall",
+        "kind": "protected",
+        "x": 2,
+        "y": 6,
+        "identity": "wall-1",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "before": {
+    "components": [
+      {
+        "id": "tank",
+        "label": "tank",
+        "kind": "actor",
+        "x": 4,
+        "y": 3,
+        "identity": "tank-1",
+        "direction": "right",
+        "cooldown": 0.2
+      },
+      {
+        "id": "alien-2",
+        "label": "alien-2",
+        "kind": "actor",
+        "x": 9,
+        "y": 3,
+        "identity": "alien-2",
+        "direction": "left",
+        "cooldown": 0
+      },
+      {
+        "id": "wall",
+        "label": "wall",
+        "kind": "protected",
+        "x": 2,
+        "y": 6,
+        "identity": "wall-1",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "expected_after": {
+    "components": [
+      {
+        "id": "tank",
+        "label": "tank",
+        "kind": "actor",
+        "x": 5,
+        "y": 3,
+        "identity": "tank-1",
+        "direction": "right",
+        "cooldown": 0.2
+      },
+      {
+        "id": "alien-2",
+        "label": "alien-2",
+        "kind": "actor",
+        "x": 9,
+        "y": 3,
+        "identity": "alien-2",
+        "direction": "left",
+        "cooldown": 0
+      },
+      {
+        "id": "wall",
+        "label": "wall",
+        "kind": "protected",
+        "x": 2,
+        "y": 6,
+        "identity": "wall-1",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "actual_after": {
+    "components": [
+      {
+        "id": "tank",
+        "label": "tank",
+        "kind": "actor",
+        "x": 5,
+        "y": 3,
+        "identity": "tank-1",
+        "direction": "right",
+        "cooldown": 0.2
+      },
+      {
+        "id": "alien-2",
+        "label": "alien-2",
+        "kind": "actor",
+        "x": 9,
+        "y": 3,
+        "identity": "alien-2",
+        "direction": "left",
+        "cooldown": 0
+      },
+      {
+        "id": "wall",
+        "label": "wall",
+        "kind": "protected",
+        "x": 2,
+        "y": 6,
+        "identity": "wall-1",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ],
+    "pixel_noise": [
+      {
+        "x": 11,
+        "y": 1,
+        "color": "#f59e0b",
+        "label": "background shimmer"
+      }
+    ]
+  },
+  "policy": {
+    "artifact_id": "policy-arcade-balanced@sha256:demo-valid",
+    "state": {
+      "threat": "near",
+      "energy": "ready"
+    },
+    "address": {
+      "row": 2,
+      "column": 2
+    },
+    "action": "MOVE_RIGHT"
+  },
+  "representations": {
+    "labelled-spatial-v1": {
+      "id": "labelled-spatial-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "identity",
+        "relation",
+        "protected"
+      ],
+      "removes": []
+    },
+    "identity-free-spatial-v1": {
+      "id": "identity-free-spatial-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "relation",
+        "protected"
+      ],
+      "removes": [
+        "identity"
+      ]
+    },
+    "coarse-pooled-v1": {
+      "id": "coarse-pooled-v1",
+      "preserves": [
+        "numeric",
+        "protected"
+      ],
+      "removes": [
+        "position",
+        "direction",
+        "magnitude",
+        "identity",
+        "relation"
+      ]
+    },
+    "source-observation-v1": {
+      "id": "source-observation-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "identity",
+        "relation",
+        "protected"
+      ],
+      "removes": []
+    }
+  },
+  "contracts": {
+    "movement": {
+      "required_changes": [
+        {
+          "component": "tank",
+          "field": "x",
+          "delta": 1,
+          "label": "tank moved right by one cell"
+        }
+      ],
+      "protected_components": [
+        "alien-2",
+        "wall"
+      ],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "magnitude": {
+      "required_changes": [
+        {
+          "component": "tank",
+          "field": "x",
+          "delta": 1,
+          "label": "tank moved by exactly one cell"
+        }
+      ],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "protected-stability": {
+      "required_changes": [],
+      "protected_components": [
+        "alien-2",
+        "wall"
+      ],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "identity-persistence": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": [],
+      "identity_components": [
+        "tank",
+        "alien-2"
+      ]
+    },
+    "numeric-state-stability": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": [
+        {
+          "component": "tank",
+          "field": "cooldown",
+          "expected": 0.2,
+          "label": "tank cooldown remained stable"
+        }
+      ]
+    },
+    "relation-preservation": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [
+        {
+          "from": "tank",
+          "to": "alien-2",
+          "field": "y",
+          "relation": "equal",
+          "label": "tank and alien-2 stayed on the same row"
+        }
+      ],
+      "numeric_constraints": []
+    }
+  },
+  "provenance": {
+    "fixture_id": "arcade-irrelevant-noise",
+    "parent_ids": [
+      "demo-03",
+      "demo-04",
+      "demo-10"
+    ],
+    "operations": [
+      "source observation declared",
+      "policy expectation selected",
+      "actual transition recorded",
+      "raw background pixels changed outside declared components"
+    ]
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "id": "warehouse-valid",
+  "domain": "warehouse",
+  "scenario": "valid",
+  "title": "Warehouse valid transition",
+  "source_observation": {
+    "components": [
+      {
+        "id": "forklift",
+        "label": "forklift",
+        "kind": "actor",
+        "x": 3,
+        "y": 4,
+        "identity": "forklift-7",
+        "direction": "right",
+        "cooldown": 0.1
+      },
+      {
+        "id": "crate-a",
+        "label": "crate-a",
+        "kind": "asset",
+        "x": 5,
+        "y": 4,
+        "identity": "crate-a",
+        "direction": "none",
+        "cooldown": 0
+      },
+      {
+        "id": "safety-gate",
+        "label": "safety-gate",
+        "kind": "protected",
+        "x": 9,
+        "y": 4,
+        "identity": "gate-2",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "before": {
+    "components": [
+      {
+        "id": "forklift",
+        "label": "forklift",
+        "kind": "actor",
+        "x": 3,
+        "y": 4,
+        "identity": "forklift-7",
+        "direction": "right",
+        "cooldown": 0.1
+      },
+      {
+        "id": "crate-a",
+        "label": "crate-a",
+        "kind": "asset",
+        "x": 5,
+        "y": 4,
+        "identity": "crate-a",
+        "direction": "none",
+        "cooldown": 0
+      },
+      {
+        "id": "safety-gate",
+        "label": "safety-gate",
+        "kind": "protected",
+        "x": 9,
+        "y": 4,
+        "identity": "gate-2",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "expected_after": {
+    "components": [
+      {
+        "id": "forklift",
+        "label": "forklift",
+        "kind": "actor",
+        "x": 3,
+        "y": 4,
+        "identity": "forklift-7",
+        "direction": "right",
+        "cooldown": 0.1
+      },
+      {
+        "id": "crate-a",
+        "label": "crate-a",
+        "kind": "asset",
+        "x": 6,
+        "y": 4,
+        "identity": "crate-a",
+        "direction": "none",
+        "cooldown": 0
+      },
+      {
+        "id": "safety-gate",
+        "label": "safety-gate",
+        "kind": "protected",
+        "x": 9,
+        "y": 4,
+        "identity": "gate-2",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "actual_after": {
+    "components": [
+      {
+        "id": "forklift",
+        "label": "forklift",
+        "kind": "actor",
+        "x": 3,
+        "y": 4,
+        "identity": "forklift-7",
+        "direction": "right",
+        "cooldown": 0.1
+      },
+      {
+        "id": "crate-a",
+        "label": "crate-a",
+        "kind": "asset",
+        "x": 6,
+        "y": 4,
+        "identity": "crate-a",
+        "direction": "none",
+        "cooldown": 0
+      },
+      {
+        "id": "safety-gate",
+        "label": "safety-gate",
+        "kind": "protected",
+        "x": 9,
+        "y": 4,
+        "identity": "gate-2",
+        "direction": "none",
+        "cooldown": 0
+      }
+    ]
+  },
+  "policy": {
+    "artifact_id": "policy-warehouse-transfer@sha256:demo-valid",
+    "state": {
+      "order": "move-crate-east",
+      "lane": "clear"
+    },
+    "address": {
+      "row": 1,
+      "column": 3
+    },
+    "action": "MOVE_CRATE_EAST"
+  },
+  "representations": {
+    "labelled-spatial-v1": {
+      "id": "labelled-spatial-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "identity",
+        "relation",
+        "protected"
+      ],
+      "removes": []
+    },
+    "identity-free-spatial-v1": {
+      "id": "identity-free-spatial-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "relation",
+        "protected"
+      ],
+      "removes": [
+        "identity"
+      ]
+    },
+    "coarse-pooled-v1": {
+      "id": "coarse-pooled-v1",
+      "preserves": [
+        "numeric",
+        "protected"
+      ],
+      "removes": [
+        "position",
+        "direction",
+        "magnitude",
+        "identity",
+        "relation"
+      ]
+    },
+    "source-observation-v1": {
+      "id": "source-observation-v1",
+      "preserves": [
+        "position",
+        "direction",
+        "magnitude",
+        "numeric",
+        "identity",
+        "relation",
+        "protected"
+      ],
+      "removes": []
+    }
+  },
+  "contracts": {
+    "movement": {
+      "required_changes": [
+        {
+          "component": "crate-a",
+          "field": "x",
+          "delta": 1,
+          "label": "crate-a moved east by one cell"
+        }
+      ],
+      "protected_components": [
+        "forklift",
+        "safety-gate"
+      ],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "magnitude": {
+      "required_changes": [
+        {
+          "component": "crate-a",
+          "field": "x",
+          "delta": 1,
+          "label": "crate-a moved by exactly one cell"
+        }
+      ],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "protected-stability": {
+      "required_changes": [],
+      "protected_components": [
+        "forklift",
+        "safety-gate"
+      ],
+      "relations": [],
+      "numeric_constraints": []
+    },
+    "identity-persistence": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": [],
+      "identity_components": [
+        "forklift",
+        "crate-a"
+      ]
+    },
+    "numeric-state-stability": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [],
+      "numeric_constraints": [
+        {
+          "component": "forklift",
+          "field": "cooldown",
+          "expected": 0.1,
+          "label": "forklift cooldown remained stable"
+        }
+      ]
+    },
+    "relation-preservation": {
+      "required_changes": [],
+      "protected_components": [],
+      "relations": [
+        {
+          "from": "forklift",
+          "to": "crate-a",
+          "field": "y",
+          "relation": "equal",
+          "label": "forklift and crate-a stayed in the same lane"
+        }
+      ],
+      "numeric_constraints": []
+    }
+  },
+  "provenance": {
+    "fixture_id": "warehouse-valid",
+    "parent_ids": [
+      "demo-08",
+      "demo-10"
+    ],
+    "operations": [
+      "source observation declared",
+      "policy expectation selected",
+      "actual transition recorded",
+      "warehouse domain fixture applies the same evaluator grammar"
+    ]
+  }
+}

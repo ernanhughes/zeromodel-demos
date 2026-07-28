@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transition Inspector — ZeroModel</title>
+  <meta name="description" content="Compare expected and actual visual transitions, classify evidence, and export a reproducible investigation record.">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <p class="eyebrow">ZeroModel Applications · Prototype</p>
+      <h1>Transition Inspector</h1>
+      <p class="lede">Compare before, expected, and actual visual states; classify transition evidence; locate evidence boundaries; and export a reproducible investigation record.</p>
+      <p class="boundary">Implemented browser demonstration. It maps current ZeroModel concepts into static fixtures and JavaScript evaluation; it is not the production compiler, SQL observation ledger, model inference, or general computer vision.</p>
+    </header>
+
+    <section class="panel setup" aria-labelledby="setup-heading">
+      <div>
+        <p class="step">1 · Investigation setup</p>
+        <h2 id="setup-heading">Choose the evidence boundary</h2>
+      </div>
+      <div class="controls">
+        <label>Domain
+          <select id="domain-select">
+            <option value="arcade">Arcade</option>
+            <option value="warehouse">Warehouse</option>
+          </select>
+        </label>
+        <label>Scenario
+          <select id="scenario-select"></select>
+        </label>
+        <label>Representation
+          <select id="representation-select">
+            <option value="labelled-spatial-v1">Full labelled spatial</option>
+            <option value="identity-free-spatial-v1">Identity-free spatial</option>
+            <option value="coarse-pooled-v1">Coarse pooled</option>
+            <option value="source-observation-v1">Source observation</option>
+          </select>
+        </label>
+        <label>Contract
+          <select id="contract-select">
+            <option value="movement">Movement</option>
+            <option value="magnitude">Magnitude</option>
+            <option value="protected-stability">Protected stability</option>
+            <option value="identity-persistence">Identity persistence</option>
+            <option value="numeric-state-stability">Numeric-state stability</option>
+            <option value="relation-preservation">Relation preservation</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="state-grid" aria-labelledby="states-heading">
+      <h2 id="states-heading" class="visually-hidden">Three-state comparison</h2>
+      <article class="panel state-card">
+        <p class="step">2 · Before</p>
+        <h3>BEFORE</h3>
+        <canvas id="before-canvas" width="480" height="320">Before state canvas rendering is unavailable.</canvas>
+      </article>
+      <article class="panel state-card">
+        <p class="step">2 · Expected after</p>
+        <h3>EXPECTED AFTER</h3>
+        <canvas id="expected-canvas" width="480" height="320">Expected state canvas rendering is unavailable.</canvas>
+      </article>
+      <article class="panel state-card">
+        <p class="step">2 · Actual after</p>
+        <h3>ACTUAL AFTER</h3>
+        <canvas id="actual-canvas" width="480" height="320">Actual state canvas rendering is unavailable.</canvas>
+      </article>
+    </section>
+
+    <section class="panel verdict-panel" aria-labelledby="verdict-heading">
+      <div>
+        <p class="step">3 · Evidence classification</p>
+        <h2 id="verdict-heading">Verdict: <span id="verdict">Loading</span></h2>
+      </div>
+      <div class="evidence-grid">
+        <article><h3>Expected and observed</h3><ul id="expected-observed"></ul></article>
+        <article><h3>Expected but absent</h3><ul id="expected-absent"></ul></article>
+        <article><h3>Unexpected but observed</h3><ul id="unexpected-observed"></ul></article>
+        <article><h3>Unobservable from permitted evidence</h3><ul id="unobservable"></ul></article>
+      </div>
+      <label class="toggle"><input type="checkbox" id="raw-toggle"> Show raw pixel difference</label>
+      <div id="raw-panel" class="raw-panel" hidden>
+        <strong>Pixel difference:</strong> <span id="raw-summary"></span>
+        <p>Raw difference says only that something changed. Transition evidence comes from declared components, contracts, and representation boundaries.</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-labelledby="trace-heading">
+      <p class="step">4 · Component trace</p>
+      <h2 id="trace-heading">Declared components</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Component</th><th>Before</th><th>Expected</th><th>Actual</th><th>Classification</th></tr></thead>
+          <tbody id="component-rows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel summary-panel" aria-labelledby="summary-heading">
+      <div>
+        <p class="step">5 · Investigation summary</p>
+        <h2 id="summary-heading">What happened?</h2>
+      </div>
+      <dl class="summary-list">
+        <div><dt>What did the policy expect?</dt><dd id="summary-expected"></dd></div>
+        <div><dt>What actually happened?</dt><dd id="summary-actual"></dd></div>
+        <div><dt>Why did the contract pass or fail?</dt><dd id="summary-why"></dd></div>
+        <div><dt>Where was evidence lost?</dt><dd id="summary-lost"></dd></div>
+        <div><dt>What should be investigated next?</dt><dd id="summary-next"></dd></div>
+      </dl>
+      <button id="export-button" type="button">Export investigation bundle</button>
+    </section>
+
+    <section class="panel context-panel" aria-labelledby="context-heading">
+      <p class="step">Application context</p>
+      <h2 id="context-heading">Why this matters</h2>
+      <p>Operational teams often need more than a screenshot diff. They need to know what the active policy expected, what actually happened, which declared components explain the result, and whether missing evidence was absent at source or lost during representation.</p>
+      <h3>Representative applications</h3>
+      <ul class="context-list">
+        <li>autonomous-system incident review;</li>
+        <li>industrial or robotic transition verification;</li>
+        <li>game and simulation testing;</li>
+        <li>UI regression testing.</li>
+      </ul>
+      <h3>What ZeroModel contributes</h3>
+      <p>ZeroModel contributes explicit policy expectation, visual transition evidence, component-level attribution, evidence-boundary classification, immutable identifiers, and reproducibility metadata.</p>
+      <p class="disclaimer">These are representative application patterns, not claims of current production deployment or validated performance in these industries.</p>
+    </section>
+  </main>
+  <script src="app.js" defer></script>
+</body>
+</html>

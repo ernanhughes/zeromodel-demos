@@ -22,7 +22,27 @@ priorities:
   - launch
   - technical
 
-items: []
+items:
+  - id: transition-inspector
+    title: Transition Inspector
+    kind: lab
+    status: prototype
+    path: apps/transition-inspector/
+    summary: Compare before, expected, and actual visual states; classify transition evidence; locate evidence boundaries; and export a reproducible investigation record.
+    zeromodel_release: integration-pending
+    zeromodel_commit: integration-pending
+    python_version: static-server-only
+    runtime: static-browser
+    last_verified: 2026-07-28
+    claims:
+      - Browser reconstruction combines policy expectation, transition evidence, representation boundaries, contract evaluation, and provenance metadata.
+      - Structured fixture data is evaluated separately from canvas rendering.
+    limitations:
+      - Not the production ZeroModel compiler, SQL ledger, replay system, or computer-vision pipeline.
+      - Does not validate performance in representative application domains.
+    reproduction:
+      run_command: python -m http.server 8080
+      url: http://localhost:8080/apps/transition-inspector/
 
 planned_items:
   - id: visual-policy-lookup

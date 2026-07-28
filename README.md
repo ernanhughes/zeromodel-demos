@@ -14,6 +14,7 @@ This repository is the public demonstration surface for that work. It is intenti
 | Area | Purpose | Stability | Typical audience |
 |---|---|---:|---|
 | [`demos/`](demos/) | Small, reproducible examples that teach one capability | Stable | Developers and evaluators |
+| [`apps/`](apps/) | Browser-native workflows that combine multiple demo mechanisms | Prototype | Operators, evaluators, and technical users |
 | [`showcase/`](showcase/) | Polished experiences designed for the website and product presentations | Curated | Customers, partners, and visitors |
 | [`lab/`](lab/) | Interactive tools and workbenches for inspecting ZeroModel artifacts | Evolving | Researchers and technical users |
 | [`experiments/`](experiments/) | Bounded investigations, prototypes, and negative findings | Unstable | Researchers and contributors |
@@ -36,6 +37,10 @@ A lab answers:
 
 > How can I inspect, manipulate, or compare the artifacts?
 
+An application answers:
+
+> How do several ZeroModel mechanisms work together in an operational workflow?
+
 An experiment answers:
 
 > What happens when we test a new hypothesis or boundary?
@@ -52,6 +57,24 @@ The first public demonstrations should make the current ZeroModel research seque
 6. **Observability boundary** — the system distinguishes a poor representation from an observation that never contained the required evidence.
 
 The expanded [current test-case demo inventory](docs/current-test-case-demo-inventory.md) maps the present ZeroModel benchmark and P18 test surface into launch demos, technical demos, labs, showcases, and bounded experiments. The machine-readable candidates are listed in [`catalog.yaml`](catalog.yaml).
+
+## Compatibility Matrix
+
+| Application/Demo | ZeroModel mapping | Runtime | Status | Last verified |
+| --- | --- | --- | --- | --- |
+| Transition Inspector | Browser reconstruction of policy expectation, transition evidence, representation boundary, contract evaluation, and provenance metadata | static-browser | prototype | 2026-07-28 |
+| State Chooses the Pixel | Browser reconstruction of visual policy address lookup | static-browser | prototype | 2026-07-27 |
+| Edit the Intelligence | Browser reconstruction of policy-artifact substitution | static-browser | prototype | 2026-07-27 |
+| Observe the Consequence | Browser reconstruction of action-to-observation lineage | static-browser | prototype | 2026-07-27 |
+| Test the Transition | Browser reconstruction of visual transition contracts | static-browser | prototype | 2026-07-27 |
+| Representation Matters | Browser reconstruction of evidence-preserving representation choices | static-browser | prototype | 2026-07-27 |
+| Compile the Representation | Browser reconstruction of bounded representation selection | static-browser | prototype | 2026-07-27 |
+| Observability Boundary | Browser reconstruction of source-vs-representation evidence loss | static-browser | prototype | 2026-07-27 |
+| Cross-Domain Replication | Browser reconstruction of shared contract grammar across domains | static-browser | prototype | 2026-07-27 |
+| Policy Profiles | Browser reconstruction of immutable policy profile swapping | static-browser | prototype | 2026-07-27 |
+| Provenance and Replay | Browser reconstruction of lineage and replay concepts | static-browser | prototype | 2026-07-27 |
+
+The current items in this repository are browser reconstructions. They do not directly import the ZeroModel Python packages unless a future item explicitly says so.
 
 ## Principles
 
