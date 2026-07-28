@@ -88,7 +88,7 @@ Fixtures are small deterministic JSON documents. The evaluator operates on struc
 
 ## Mapping To Current ZeroModel
 
-The local `C:\Projects\zeromodel` checkout confirms observation DTO and operation-chain names in example imports. Concepts marked partial or emerging are mapped conservatively.
+The current ZeroModel repository confirms the observation DTO and operation-chain names used below. Concepts marked partial or emerging are mapped conservatively.
 
 | Application concept | Current ZeroModel mapping | Integration status |
 | --- | --- | --- |
