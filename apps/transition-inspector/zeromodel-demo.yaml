@@ -1,0 +1,54 @@
+schema_version: zeromodel-demo/v1
+id: transition-inspector
+title: Transition Inspector
+class: lab
+status: prototype
+summary: Compare before, expected, and actual visual states; classify transition evidence; locate evidence boundaries; and export a reproducible investigation record.
+
+zeromodel:
+  repository: https://github.com/ernanhughes/zeromodel
+  release: integration-pending
+  commit: integration-pending
+  packages: []
+
+runtime:
+  language: javascript
+  version: browser-es2021
+  entrypoint: index.html
+  network_required: false
+  external_services: []
+
+presentation:
+  website_visible: true
+  featured: true
+  route: /apps/transition-inspector/
+  thumbnail: null
+  screenshots: []
+
+claims:
+  supported:
+    - Static browser fixtures reconstruct policy expectation, expected state, actual state, representation boundary, contract, evidence classifications, and provenance metadata.
+    - The evaluator operates on declared structured components rather than raw canvas pixels.
+    - Exported bundles contain deterministic browser investigation records.
+  limitations:
+    - This is not the complete production ZeroModel compiler or replay system.
+    - It does not run the production SQL observation ledger.
+    - It does not perform general computer vision or automatic semantic labelling.
+    - It does not recover evidence absent from the source observation.
+  claims_to_avoid:
+    - The browser app proves cross-domain performance.
+    - The browser app performs causal discovery.
+    - The browser app consumes production ZeroModel replay bundles.
+
+provenance:
+  claims_audit: null
+  frozen_results: []
+  research_documents: []
+
+validation:
+  install_command: null
+  run_command: python -m http.server 8080
+  test_command: null
+  expected_artifacts:
+    - fixtures/arcade-valid.json
+    - fixtures/warehouse-valid.json
